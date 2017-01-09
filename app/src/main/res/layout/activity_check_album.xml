@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/activity_check_album"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context="com.zhiyingli.photoalbum.checkalbum.CheckAlbumActivity">
+    <ListView android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/mlistview"/>
+    <android.support.v7.widget.Toolbar android:layout_width="match_parent" android:layout_height="wrap_content"
+                                       android:background="@color/colorAccent">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="选择相册" android:layout_gravity="center_horizontal"/>
+    </android.support.v7.widget.Toolbar>
+</LinearLayout>
