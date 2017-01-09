@@ -1,48 +1,31 @@
 package com.zhiyingli.photoalbum;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.EditText;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.zhiyingli.photoalbum.checkalbum.CheckAlbumActivity;
 
 public class MainActivity extends AppCompatActivity {
-
+    private EditText editText;
+    public static String CHECKPICTURENUMBER = "checkpicturenumber";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        String[] strs = {"1","2","3","4","5","6"};
-        String[] strs1 = {"1","2","3"};
-        String[] strs2 = {"4","5","6"};
+        editText = (EditText) findViewById(R.id.edittext);
+    }
 
-        HashMap<String,String> map = new HashMap<>();
-        HashMap<String,String> map1 = new HashMap<>();
-        HashMap<String,String> map2 = new HashMap<>();
-        for (String str:strs){
-            map.put(str,"");
+    public void toCheckAlbumActivity(View v){
+        if (TextUtils.isEmpty(editText.getText())){
+            return;
         }
-        for (String str: strs1){
-            map1.put(str,str);
-        }
-
-        map.putAll(map1);
-
-        for (Map.Entry entry:map.entrySet()){
-            Log.e("TAG","key------"+entry.getKey());
-            Log.e("TAG","value-------"+entry.getValue());
-        }
-
-        for (String str:strs2){
-            map2.put(str,str);
-        }
-        map.putAll(map2);
-        for (Map.Entry entry:map.entrySet()){
-            Log.e("TAG","key======="+entry.getKey());
-            Log.e("TAG","value======="+entry.getValue());
-        }
-
-
+        Intent intent = new Intent(MainActivity.this,CheckAlbumActivity.class);
+        intent.putExtra(CHECKPICTURENUMBER,Integer.parseInt(editText.getText().toString()));
+        startActivity(intent);
     }
 }
+
